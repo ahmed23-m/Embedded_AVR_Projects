@@ -1,0 +1,336 @@
+
+COTS.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000001ca  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000008  00800060  000001ca  0000023e  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .comment      00000030  00000000  00000000  00000246  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000278  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000090  00000000  00000000  000002b4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000adc  00000000  00000000  00000344  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00000714  00000000  00000000  00000e20  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   0000045b  00000000  00000000  00001534  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  0000009c  00000000  00000000  00001990  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    00000585  00000000  00000000  00001a2c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000301  00000000  00000000  00001fb1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000048  00000000  00000000  000022b2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+   8:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+   c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  10:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  14:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  18:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  1c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  20:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  24:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  28:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  2c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  30:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  34:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  38:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  3c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  40:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  44:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  48:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  4c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  50:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	10 e0       	ldi	r17, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	ea ec       	ldi	r30, 0xCA	; 202
+  68:	f1 e0       	ldi	r31, 0x01	; 1
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+  70:	a8 36       	cpi	r26, 0x68	; 104
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
+  76:	0e 94 41 00 	call	0x82	; 0x82 <main>
+  7a:	0c 94 e3 00 	jmp	0x1c6	; 0x1c6 <_exit>
+
+0000007e <__bad_interrupt>:
+  7e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000082 <main>:
+
+
+
+int main(void)
+{
+	PORT_Init();
+  82:	0e 94 5f 00 	call	0xbe	; 0xbe <PORT_Init>
+	LED_ON(RED);
+  86:	80 e0       	ldi	r24, 0x00	; 0
+  88:	0e 94 47 00 	call	0x8e	; 0x8e <LED_ON>
+  8c:	ff cf       	rjmp	.-2      	; 0x8c <main+0xa>
+
+0000008e <LED_ON>:
+* \Parameters (out): None
+* \Return value:   : Std_ReturnType  E_OK
+*                                    E_NOT_OK
+*******************************************************************************/
+void LED_ON(uint8 Color){
+	switch(Color)
+  8e:	81 30       	cpi	r24, 0x01	; 1
+  90:	51 f0       	breq	.+20     	; 0xa6 <LED_ON+0x18>
+  92:	28 f0       	brcs	.+10     	; 0x9e <LED_ON+0x10>
+  94:	82 30       	cpi	r24, 0x02	; 2
+  96:	59 f0       	breq	.+22     	; 0xae <LED_ON+0x20>
+  98:	83 30       	cpi	r24, 0x03	; 3
+  9a:	69 f0       	breq	.+26     	; 0xb6 <LED_ON+0x28>
+  9c:	08 95       	ret
+	{
+		case RED:
+		SET_Bit(DIO_PORTB->PORT , 7);
+  9e:	88 b3       	in	r24, 0x18	; 24
+  a0:	80 68       	ori	r24, 0x80	; 128
+  a2:	88 bb       	out	0x18, r24	; 24
+		break;
+  a4:	08 95       	ret
+		case GREEN:
+		SET_Bit(DIO_PORTA->PORT , 4);
+  a6:	8b b3       	in	r24, 0x1b	; 27
+  a8:	80 61       	ori	r24, 0x10	; 16
+  aa:	8b bb       	out	0x1b, r24	; 27
+		break;
+  ac:	08 95       	ret
+		case BLUE:
+		SET_Bit(DIO_PORTA->PORT , 5);
+  ae:	8b b3       	in	r24, 0x1b	; 27
+  b0:	80 62       	ori	r24, 0x20	; 32
+  b2:	8b bb       	out	0x1b, r24	; 27
+		break;
+  b4:	08 95       	ret
+		case YELLOW:
+		SET_Bit(DIO_PORTA->PORT , 6);
+  b6:	8b b3       	in	r24, 0x1b	; 27
+  b8:	80 64       	ori	r24, 0x40	; 64
+  ba:	8b bb       	out	0x1b, r24	; 27
+  bc:	08 95       	ret
+
+000000be <PORT_Init>:
+*******************************************************************************/
+void PORT_Init(void)
+{
+	uint8 Loop_counter = 0,	PORT = 0,	PIN = 0,	Dir = 0;
+	
+	for(Loop_counter = 0; Loop_counter<DEFINED_PINS; Loop_counter++)
+  be:	90 e0       	ldi	r25, 0x00	; 0
+  c0:	7e c0       	rjmp	.+252    	; 0x1be <PORT_Init+0x100>
+	{
+		PORT = PORT_Init_Pins[Loop_counter].PIN_Order / Number_PORT_PINS;
+  c2:	e9 2f       	mov	r30, r25
+  c4:	f0 e0       	ldi	r31, 0x00	; 0
+  c6:	ee 0f       	add	r30, r30
+  c8:	ff 1f       	adc	r31, r31
+  ca:	e0 5a       	subi	r30, 0xA0	; 160
+  cc:	ff 4f       	sbci	r31, 0xFF	; 255
+  ce:	80 81       	ld	r24, Z
+  d0:	28 2f       	mov	r18, r24
+  d2:	26 95       	lsr	r18
+  d4:	26 95       	lsr	r18
+  d6:	26 95       	lsr	r18
+		PIN  = PORT_Init_Pins[Loop_counter].PIN_Order % Number_PORT_PINS;
+  d8:	87 70       	andi	r24, 0x07	; 7
+		Dir  = PORT_Init_Pins[Loop_counter].PIN_Dir;
+  da:	31 81       	ldd	r19, Z+1	; 0x01
+		
+		switch(Dir)
+  dc:	33 23       	and	r19, r19
+  de:	b9 f1       	breq	.+110    	; 0x14e <PORT_Init+0x90>
+  e0:	31 30       	cpi	r19, 0x01	; 1
+  e2:	09 f0       	breq	.+2      	; 0xe6 <PORT_Init+0x28>
+  e4:	6b c0       	rjmp	.+214    	; 0x1bc <PORT_Init+0xfe>
+		{
+			case PIN_OUTPUT:
+			{	
+				switch(PORT)
+  e6:	21 30       	cpi	r18, 0x01	; 1
+  e8:	89 f0       	breq	.+34     	; 0x10c <PORT_Init+0x4e>
+  ea:	28 f0       	brcs	.+10     	; 0xf6 <PORT_Init+0x38>
+  ec:	22 30       	cpi	r18, 0x02	; 2
+  ee:	c9 f0       	breq	.+50     	; 0x122 <PORT_Init+0x64>
+  f0:	23 30       	cpi	r18, 0x03	; 3
+  f2:	11 f1       	breq	.+68     	; 0x138 <PORT_Init+0x7a>
+  f4:	63 c0       	rjmp	.+198    	; 0x1bc <PORT_Init+0xfe>
+				{
+					case PORT_A:
+						SET_Bit(DIO_PORTA->DDR,PIN);
+  f6:	4a b3       	in	r20, 0x1a	; 26
+  f8:	21 e0       	ldi	r18, 0x01	; 1
+  fa:	30 e0       	ldi	r19, 0x00	; 0
+  fc:	02 c0       	rjmp	.+4      	; 0x102 <PORT_Init+0x44>
+  fe:	22 0f       	add	r18, r18
+ 100:	33 1f       	adc	r19, r19
+ 102:	8a 95       	dec	r24
+ 104:	e2 f7       	brpl	.-8      	; 0xfe <PORT_Init+0x40>
+ 106:	24 2b       	or	r18, r20
+ 108:	2a bb       	out	0x1a, r18	; 26
+						break;
+ 10a:	58 c0       	rjmp	.+176    	; 0x1bc <PORT_Init+0xfe>
+					case PORT_B:
+						SET_Bit(DIO_PORTB->DDR,PIN);
+ 10c:	47 b3       	in	r20, 0x17	; 23
+ 10e:	21 e0       	ldi	r18, 0x01	; 1
+ 110:	30 e0       	ldi	r19, 0x00	; 0
+ 112:	02 c0       	rjmp	.+4      	; 0x118 <PORT_Init+0x5a>
+ 114:	22 0f       	add	r18, r18
+ 116:	33 1f       	adc	r19, r19
+ 118:	8a 95       	dec	r24
+ 11a:	e2 f7       	brpl	.-8      	; 0x114 <PORT_Init+0x56>
+ 11c:	24 2b       	or	r18, r20
+ 11e:	27 bb       	out	0x17, r18	; 23
+						break;
+ 120:	4d c0       	rjmp	.+154    	; 0x1bc <PORT_Init+0xfe>
+					case PORT_C:
+						SET_Bit(DIO_PORTC->DDR,PIN);
+ 122:	44 b3       	in	r20, 0x14	; 20
+ 124:	21 e0       	ldi	r18, 0x01	; 1
+ 126:	30 e0       	ldi	r19, 0x00	; 0
+ 128:	02 c0       	rjmp	.+4      	; 0x12e <PORT_Init+0x70>
+ 12a:	22 0f       	add	r18, r18
+ 12c:	33 1f       	adc	r19, r19
+ 12e:	8a 95       	dec	r24
+ 130:	e2 f7       	brpl	.-8      	; 0x12a <PORT_Init+0x6c>
+ 132:	24 2b       	or	r18, r20
+ 134:	24 bb       	out	0x14, r18	; 20
+						break;
+ 136:	42 c0       	rjmp	.+132    	; 0x1bc <PORT_Init+0xfe>
+					case PORT_D:
+						SET_Bit(DIO_PORTD->DDR,PIN);
+ 138:	41 b3       	in	r20, 0x11	; 17
+ 13a:	21 e0       	ldi	r18, 0x01	; 1
+ 13c:	30 e0       	ldi	r19, 0x00	; 0
+ 13e:	02 c0       	rjmp	.+4      	; 0x144 <PORT_Init+0x86>
+ 140:	22 0f       	add	r18, r18
+ 142:	33 1f       	adc	r19, r19
+ 144:	8a 95       	dec	r24
+ 146:	e2 f7       	brpl	.-8      	; 0x140 <PORT_Init+0x82>
+ 148:	24 2b       	or	r18, r20
+ 14a:	21 bb       	out	0x11, r18	; 17
+						break;
+ 14c:	37 c0       	rjmp	.+110    	; 0x1bc <PORT_Init+0xfe>
+				}
+			}
+			break;
+			case PIN_INPUT:
+			{
+				switch(PORT)
+ 14e:	21 30       	cpi	r18, 0x01	; 1
+ 150:	91 f0       	breq	.+36     	; 0x176 <PORT_Init+0xb8>
+ 152:	28 f0       	brcs	.+10     	; 0x15e <PORT_Init+0xa0>
+ 154:	22 30       	cpi	r18, 0x02	; 2
+ 156:	d9 f0       	breq	.+54     	; 0x18e <PORT_Init+0xd0>
+ 158:	23 30       	cpi	r18, 0x03	; 3
+ 15a:	29 f1       	breq	.+74     	; 0x1a6 <PORT_Init+0xe8>
+ 15c:	2f c0       	rjmp	.+94     	; 0x1bc <PORT_Init+0xfe>
+				{
+					case PORT_A:
+						CLR_Bit(DIO_PORTA->DDR,PIN);
+ 15e:	4a b3       	in	r20, 0x1a	; 26
+ 160:	21 e0       	ldi	r18, 0x01	; 1
+ 162:	30 e0       	ldi	r19, 0x00	; 0
+ 164:	02 c0       	rjmp	.+4      	; 0x16a <PORT_Init+0xac>
+ 166:	22 0f       	add	r18, r18
+ 168:	33 1f       	adc	r19, r19
+ 16a:	8a 95       	dec	r24
+ 16c:	e2 f7       	brpl	.-8      	; 0x166 <PORT_Init+0xa8>
+ 16e:	20 95       	com	r18
+ 170:	24 23       	and	r18, r20
+ 172:	2a bb       	out	0x1a, r18	; 26
+						break;
+ 174:	23 c0       	rjmp	.+70     	; 0x1bc <PORT_Init+0xfe>
+					case PORT_B:
+						CLR_Bit(DIO_PORTB->DDR,PIN);
+ 176:	47 b3       	in	r20, 0x17	; 23
+ 178:	21 e0       	ldi	r18, 0x01	; 1
+ 17a:	30 e0       	ldi	r19, 0x00	; 0
+ 17c:	02 c0       	rjmp	.+4      	; 0x182 <PORT_Init+0xc4>
+ 17e:	22 0f       	add	r18, r18
+ 180:	33 1f       	adc	r19, r19
+ 182:	8a 95       	dec	r24
+ 184:	e2 f7       	brpl	.-8      	; 0x17e <PORT_Init+0xc0>
+ 186:	20 95       	com	r18
+ 188:	24 23       	and	r18, r20
+ 18a:	27 bb       	out	0x17, r18	; 23
+						break;
+ 18c:	17 c0       	rjmp	.+46     	; 0x1bc <PORT_Init+0xfe>
+					case PORT_C:
+						CLR_Bit(DIO_PORTC->DDR,PIN);
+ 18e:	44 b3       	in	r20, 0x14	; 20
+ 190:	21 e0       	ldi	r18, 0x01	; 1
+ 192:	30 e0       	ldi	r19, 0x00	; 0
+ 194:	02 c0       	rjmp	.+4      	; 0x19a <PORT_Init+0xdc>
+ 196:	22 0f       	add	r18, r18
+ 198:	33 1f       	adc	r19, r19
+ 19a:	8a 95       	dec	r24
+ 19c:	e2 f7       	brpl	.-8      	; 0x196 <PORT_Init+0xd8>
+ 19e:	20 95       	com	r18
+ 1a0:	24 23       	and	r18, r20
+ 1a2:	24 bb       	out	0x14, r18	; 20
+						break;
+ 1a4:	0b c0       	rjmp	.+22     	; 0x1bc <PORT_Init+0xfe>
+					case PORT_D:
+						CLR_Bit(DIO_PORTD->DDR,PIN);
+ 1a6:	41 b3       	in	r20, 0x11	; 17
+ 1a8:	21 e0       	ldi	r18, 0x01	; 1
+ 1aa:	30 e0       	ldi	r19, 0x00	; 0
+ 1ac:	02 c0       	rjmp	.+4      	; 0x1b2 <PORT_Init+0xf4>
+ 1ae:	22 0f       	add	r18, r18
+ 1b0:	33 1f       	adc	r19, r19
+ 1b2:	8a 95       	dec	r24
+ 1b4:	e2 f7       	brpl	.-8      	; 0x1ae <PORT_Init+0xf0>
+ 1b6:	20 95       	com	r18
+ 1b8:	24 23       	and	r18, r20
+ 1ba:	21 bb       	out	0x11, r18	; 17
+*******************************************************************************/
+void PORT_Init(void)
+{
+	uint8 Loop_counter = 0,	PORT = 0,	PIN = 0,	Dir = 0;
+	
+	for(Loop_counter = 0; Loop_counter<DEFINED_PINS; Loop_counter++)
+ 1bc:	9f 5f       	subi	r25, 0xFF	; 255
+ 1be:	94 30       	cpi	r25, 0x04	; 4
+ 1c0:	08 f4       	brcc	.+2      	; 0x1c4 <PORT_Init+0x106>
+ 1c2:	7f cf       	rjmp	.-258    	; 0xc2 <PORT_Init+0x4>
+			
+			default:
+			break;
+		}
+	}
+}
+ 1c4:	08 95       	ret
+
+000001c6 <_exit>:
+ 1c6:	f8 94       	cli
+
+000001c8 <__stop_program>:
+ 1c8:	ff cf       	rjmp	.-2      	; 0x1c8 <__stop_program>
