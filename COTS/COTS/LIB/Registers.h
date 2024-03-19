@@ -57,7 +57,12 @@ typedef struct
 #define DIO_PORTC	((volatile DIO_TYPE*)(0x33))
 #define DIO_PORTD	((volatile DIO_TYPE*)(0x30))
 
+//==============================[ EXT INTTERRUPT ]==============================//
 
+#define SREG		(*(volatile uint8*)(0x5F))
+#define MCUCR		(*(volatile uint8*)(0x55))
+#define MCUSCR		(*(volatile uint8*)(0x54))
+#define GISR		(*(volatile uint8*)(0x5B))
 
 /**********************************************************************************************************************
  *  GLOBAL FUNCTION MACROS

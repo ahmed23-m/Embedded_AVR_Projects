@@ -107,6 +107,11 @@
       <Value>../HAL/SVN_Segment</Value>
       <Value>../APP/Application</Value>
       <Value>../APP/CFG</Value>
+      <Value>../HAL/KeyPad</Value>
+      <Value>../MCAL/PORT</Value>
+      <Value>../MCAL/DIO</Value>
+      <Value>../HAL/LCD</Value>
+      <Value>../MCAL/IRQH</Value>
     </ListValues>
   </avrgcc.compiler.directories.IncludePaths>
   <avrgcc.compiler.optimization.level>Optimize debugging experience (-Og)</avrgcc.compiler.optimization.level>
@@ -132,6 +137,21 @@
     <Compile Include="APP\Application\main.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="APP\CFG\IRQH_Cfg.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="APP\CFG\KeyPad_Cfg.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="APP\CFG\KeyPad_Cfg.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="APP\CFG\LCD_Cfg.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="APP\CFG\LCD_Cfg.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="APP\CFG\PORT_Lcfg.c">
       <SubType>compile</SubType>
     </Compile>
@@ -142,6 +162,18 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="HAL\Button\Button_Core.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\KeyPad\KeyPad_Core.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\KeyPad\KeyPad_Core.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\LCD\LCD_Core.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\LCD\LCD_Core.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="HAL\LED\LED_Core.c">
@@ -165,10 +197,22 @@
     <Compile Include="LIB\STD.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\PORT_Core.h">
+    <Compile Include="MCAL\DIO\DIO_Core.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\PORT_Core.c">
+    <Compile Include="MCAL\DIO\DIO_Core.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\IRQH\IRQH_Core.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\IRQH\IRQH_Core.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\PORT\PORT_Core.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\PORT\PORT_Core.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>
@@ -177,11 +221,16 @@
     <Folder Include="APP\CFG" />
     <Folder Include="HAL\LED" />
     <Folder Include="HAL\Button" />
+    <Folder Include="HAL\KeyPad" />
+    <Folder Include="HAL\LCD" />
     <Folder Include="HAL\SVN_Segment" />
     <Folder Include="LIB" />
     <Folder Include="MCAL" />
     <Folder Include="HAL" />
     <Folder Include="APP" />
+    <Folder Include="MCAL\DIO" />
+    <Folder Include="MCAL\IRQH" />
+    <Folder Include="MCAL\PORT" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

@@ -69,7 +69,6 @@ void LED_Init(uint8 Color){
 		default:
 		break;
 	}
-	
 }
 
 
@@ -85,23 +84,8 @@ void LED_Init(uint8 Color){
 *                                    E_NOT_OK
 *******************************************************************************/
 void LED_ON(uint8 Color){
-	switch(Color)
-	{
-		case RED:
-		SET_Bit(DIO_PORTB->PORT , 7);
-		break;
-		case GREEN:
-		SET_Bit(DIO_PORTA->PORT , 4);
-		break;
-		case BLUE:
-		SET_Bit(DIO_PORTA->PORT , 5);
-		break;
-		case YELLOW:
-		SET_Bit(DIO_PORTA->PORT , 6);
-		break;
-		default:
-		break;
-	}
+	
+	DIO_WriteChannel(Color,PIN_HIGH);
 }
 
 
@@ -117,23 +101,8 @@ void LED_ON(uint8 Color){
 *                                    E_NOT_OK
 *******************************************************************************/
 void LED_OFF(uint8 Color){
-	switch(Color)
-	{
-		case RED:
-		CLR_Bit(DIO_PORTB->PORT , 7);
-		break;
-		case GREEN:
-		CLR_Bit(DIO_PORTA->PORT , 4);
-		break;
-		case BLUE:
-		CLR_Bit(DIO_PORTA->PORT , 5);
-		break;
-		case YELLOW:
-		CLR_Bit(DIO_PORTA->PORT , 6);
-		break;
-		default:
-		break;
-	}
+	
+	DIO_WriteChannel(Color,PIN_LOW);
 }
 
 
@@ -149,23 +118,8 @@ void LED_OFF(uint8 Color){
 *                                    E_NOT_OK
 *******************************************************************************/
 void LED_Toggle(uint8 Color){
-	switch(Color)
-	{
-		case RED:
-		TOGGLE_Bit(DIO_PORTB->PORT , 7);
-		break;
-		case GREEN:
-		TOGGLE_Bit(DIO_PORTA->PORT , 4);
-		break;
-		case BLUE:
-		TOGGLE_Bit(DIO_PORTA->PORT , 5);
-		break;
-		case YELLOW:
-		TOGGLE_Bit(DIO_PORTA->PORT , 6);
-		break;
-		default:
-		break;
-	}
+	
+	DIO_FlipChannel(Color);
 }
 /**********************************************************************************************************************
  *  END OF FILE: 

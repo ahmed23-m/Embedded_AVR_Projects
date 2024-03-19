@@ -33,10 +33,14 @@
  *********************************************************************************************************************/
 PIN_PARAMETERS_Type PORT_Init_Pins[DEFINED_PINS] = {
 	/* PIN_Num	,	PIN_Dir */
-	{PORTB_PIN_7, PIN_OUTPUT},
-	{PORTA_PIN_4, PIN_OUTPUT},
-	{PORTA_PIN_5, PIN_OUTPUT},
-	{PORTA_PIN_6, PIN_OUTPUT}
+	/* LCD Pins*/	{PORTA_PIN_3 , PIN_OUTPUT},	{PORTA_PIN_2 , PIN_OUTPUT},	{PORTB_PIN_0 , PIN_OUTPUT},	{PORTB_PIN_1 , PIN_OUTPUT},	{PORTB_PIN_2 , PIN_OUTPUT},	{PORTB_PIN_4 , PIN_OUTPUT},	/*KeyPad Pins*/	{PORTD_PIN_7 , PIN_INPUT},
+	{PORTD_PIN_6 , PIN_INPUT},
+	{PORTD_PIN_5 , PIN_INPUT},
+	{PORTD_PIN_3 , PIN_INPUT},
+	{PORTC_PIN_5 , PIN_OUTPUT},
+	{PORTC_PIN_4 , PIN_OUTPUT},
+	{PORTC_PIN_3 , PIN_OUTPUT},
+	{PORTC_PIN_2 , PIN_OUTPUT}
 };
 /**********************************************************************************************************************
  *  LOCAL FUNCTION PROTOTYPES

@@ -72,11 +72,13 @@ uint8 Button_GetValue(uint8 PIN_Number)
 {
 	uint8 Btn_Value=0,Temp=0;
 	
-	Btn_Value = GET_Bit(DIO_PORTD->PIN,PIN_Number);
+	DIO_ReadChannel(PIN_Number,&Btn_Value);
+// 	Btn_Value = GET_Bit(DIO_PORTD->PIN,PIN_Number);
 	
 	while(Temp==0)
 	{
-		Temp = GET_Bit(DIO_PORTD->PIN,PIN_Number);
+// 		Temp = GET_Bit(DIO_PORTD->PIN,PIN_Number);
+		DIO_ReadChannel(PIN_Number,&Temp);
 	}
 	
 	_delay_ms(10);

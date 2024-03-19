@@ -2,7 +2,7 @@
  * Button_Core.h
  *
  * Created: 2024/2/10 10:26:18 PM
- *  Author: dasah
+ *  Author: Ahmed Adel
  */ 
 
 /**********************************************************************************************************************
@@ -24,13 +24,14 @@
 #include "STD.h"
 #include "BIT_MATH.h"
 #include "Registers.h"
+#include "DIO_Core.h"
 /**********************************************************************************************************************
  *  GLOBAL CONSTANT MACROS
  *********************************************************************************************************************/
-#define Button_0	((uint8)(7U))
-#define Button_1	((uint8)(6U))
-#define Button_2	((uint8)(5U))
-#define Button_3	((uint8)(3U))
+#define Button_0	DIO_PORTD_PIN7
+#define Button_1	DIO_PORTD_PIN6
+#define Button_2	DIO_PORTD_PIN5
+#define Button_3	DIO_PORTD_PIN3
 
 /**********************************************************************************************************************
  *  GLOBAL FUNCTION MACROS
@@ -51,9 +52,9 @@
  *  GLOBAL FUNCTION PROTOTYPES
  *********************************************************************************************************************/
 void Button_Init(uint8 PIN_Number);
+
 uint8 Button_GetValue(uint8 PIN_Number);
  
-
 
 /**********************************************************************************************************************
  *  END OF FILE: 

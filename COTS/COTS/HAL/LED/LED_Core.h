@@ -17,15 +17,16 @@
 #include "BIT_MATH.h"
 #include "STD.h"
 #include "Registers.h"
+#include "DIO_Core.h"
 
 /**********************************************************************************************************************
  *  GLOBAL CONSTANT MACROS
  *********************************************************************************************************************/
 
-#define RED     ((uint8)(0U))
-#define GREEN   ((uint8)(1U))
-#define BLUE    ((uint8)(2U))
-#define YELLOW  ((uint8)(3U))
+#define RED     DIO_PORTB_PIN7
+#define GREEN   DIO_PORTA_PIN4
+#define BLUE    DIO_PORTA_PIN5
+#define YELLOW  DIO_PORTA_PIN6
 
 /**********************************************************************************************************************
  *  GLOBAL FUNCTION MACROS
@@ -42,8 +43,11 @@
  *********************************************************************************************************************/
 
 void LED_Init(uint8 Color);
+
 void LED_ON(uint8 Color);
+
 void LED_OFF(uint8 Color);
+
 void LED_Toggle(uint8 Color);
  
 /**********************************************************************************************************************

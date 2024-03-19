@@ -13,6 +13,7 @@
 #include "STD.h"
 #include "BIT_MATH.h"
 #include "Registers.h"
+#include "DIO_Core.h"
 
 #define F_CPU 16000000
 #include <util/delay.h>
