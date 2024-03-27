@@ -20,6 +20,8 @@ HAL\LED\LED_Core.c
 
 HAL\SVN_Segment\SVN_Segment.c
 
+MCAL\ADC\ADC_Core.c
+
 MCAL\DIO\DIO_Core.c
 
 MCAL\IRQH\IRQH_Core.c

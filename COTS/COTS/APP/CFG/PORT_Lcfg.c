@@ -40,7 +40,8 @@ PIN_PARAMETERS_Type PORT_Init_Pins[DEFINED_PINS] = {
 	{PORTC_PIN_5 , PIN_OUTPUT},
 	{PORTC_PIN_4 , PIN_OUTPUT},
 	{PORTC_PIN_3 , PIN_OUTPUT},
-	{PORTC_PIN_2 , PIN_OUTPUT}
+	{PORTC_PIN_2 , PIN_OUTPUT},
+	//
 };
 /**********************************************************************************************************************
  *  LOCAL FUNCTION PROTOTYPES

@@ -10,7 +10,7 @@ APP/Application/main.d APP/Application/main.o: ../APP/Application/main.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  ../HAL/KeyPad/KeyPad_Core.h ../APP/CFG/KeyPad_Cfg.h \
- ../MCAL/IRQH/IRQH_Core.h ../APP/CFG/IRQH_Cfg.h \
+ ../MCAL/IRQH/IRQH_Core.h ../APP/CFG/IRQH_Cfg.h ../MCAL/ADC/ADC_Core.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
@@ -62,6 +62,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../MCAL/IRQH/IRQH_Core.h:
 
 ../APP/CFG/IRQH_Cfg.h:
+
+../MCAL/ADC/ADC_Core.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
 

@@ -112,6 +112,7 @@
       <Value>../MCAL/DIO</Value>
       <Value>../HAL/LCD</Value>
       <Value>../MCAL/IRQH</Value>
+      <Value>../MCAL/ADC</Value>
     </ListValues>
   </avrgcc.compiler.directories.IncludePaths>
   <avrgcc.compiler.optimization.level>Optimize debugging experience (-Og)</avrgcc.compiler.optimization.level>
@@ -135,6 +136,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="APP\Application\main.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="APP\CFG\ADC_Cfg.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="APP\CFG\IRQH_Cfg.h">
@@ -197,6 +201,12 @@
     <Compile Include="LIB\STD.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MCAL\ADC\ADC_Core.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\ADC\ADC_Core.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="MCAL\DIO\DIO_Core.c">
       <SubType>compile</SubType>
     </Compile>
@@ -230,6 +240,7 @@
     <Folder Include="APP" />
     <Folder Include="MCAL\DIO" />
     <Folder Include="MCAL\IRQH" />
+    <Folder Include="MCAL\ADC" />
     <Folder Include="MCAL\PORT" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
